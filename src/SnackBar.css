@@ -1,0 +1,94 @@
+#mc-snackbar {
+  position: fixed;
+  top: 36px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: auto;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1; }
+  #mc-snackbar .mc-message {
+    max-width: 555px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 48px;
+    color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(32, 28, 37, 0.5);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    word-break: break-all;
+    position: relative;
+    overflow: hidden; }
+  #mc-snackbar .mc-msg-success {
+    background-color: rgba(76, 217, 100, 0.8); }
+  #mc-snackbar .mc-msg-error {
+    background-color: rgba(255, 117, 109, 0.8); }
+  #mc-snackbar .mc-msg-info {
+    background-color: rgba(31, 137, 242, 0.8); }
+  #mc-snackbar .mc-msg-warning {
+    background-color: rgba(255, 207, 0, 0.8); }
+  #mc-snackbar .mc-msg-icon {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    cursor: pointer; }
+  #mc-snackbar .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible; }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+  #mc-snackbar .slideInDown {
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown; }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+    max-height: 150px;
+    margin-bottom: 10px;
+    padding: 8px 46px; }
+  to {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    padding: 0px 46px; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    max-height: 150px;
+    margin-bottom: 10px;
+    padding: 8px 46px; }
+  to {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    padding: 0px 46px; } }
+  #mc-snackbar .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut; }
