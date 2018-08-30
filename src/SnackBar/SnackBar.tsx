@@ -1,8 +1,6 @@
 import * as classnames from 'classnames';
 import * as React from 'react';// ?
-// import {ReactDOM} from 'react-dom';
-// const classnames = require('classnames');
-import '../SnackBar.css'
+import './SnackBar.css'
 
 interface IFSnackBarState {
     hide: boolean
@@ -90,12 +88,12 @@ class SnackBar extends React.Component <IFSnackBarProps> {
  * 使用说明
  * import snackbar from 'snackbar'
  * snackbar.info(a,v,b,n)
- * @type {{info: _default.info}}
+ * @type {{info: SB_DEFAULT.info}}
  * @private
  */
-// const ReactDom = require('react-dom');
 import * as ReactDom from 'react-dom';
 
+const TypeList: string[] = ['success', 'error', 'info', 'warning']
 const SB_DEFAULT = {
     /**
      * 参数
@@ -104,7 +102,14 @@ const SB_DEFAULT = {
      * @param hasClose 是否有关闭按钮，如果有，则不会自动关闭。 bool 默认为false
      * @param delay 自动关闭时间(秒) num 默认为5
      */
-    info: (type = 'success', msg = 'this is alertmsg', hasClose = false, delay = 5) => {
+    info: (type: string = 'success',
+           msg: string = 'this is alertmsg',
+           hasClose: boolean | undefined = false,
+           delay: number | undefined = 5) => {
+        if (TypeList.indexOf(type) === -1) {
+            console.error(type, '非法type值')
+            return
+        }
         const div: any = document.createElement('div')
         const MC_DOM: any = document.querySelector('#mc-snackbar')
         if (MC_DOM) {
