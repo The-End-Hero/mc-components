@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import logo from './logo.svg';
-import SnackBar from './SnackBar/SnackBar'
+import SnackBar from './components/SnackBar/SnackBar'
 
 class App extends React.Component {
     public show = () => {
