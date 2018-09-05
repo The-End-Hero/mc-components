@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './App.css';
-import logo from './logo.svg';
 import SnackBar from './components/SnackBar/SnackBar'
+import SnackBarDemo from './routeCom/SnackBarDemo'
+import { Link , Route} from 'react-router-dom'
 
 class App extends React.Component {
     public show = () => {
@@ -11,14 +12,12 @@ class App extends React.Component {
     public render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to reload.
-                </p>
+                <div>123</div>
                 <button onClick={this.show}>123</button>
+                <Link to="/snackbardemo">snackbardemo</Link>
+                <div>
+                    <Route exact={true} path="/" component={SnackBarDemo}/>
+                </div>
             </div>
         );
     }

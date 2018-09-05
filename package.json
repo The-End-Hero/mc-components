@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-router-dom": "^4.3.0",
     "classnames": "^2.2.6",
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.6",
