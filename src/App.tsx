@@ -2,25 +2,26 @@ import * as React from 'react';
 import './App.css';
 import SnackBarDemo from './routeCom/SnackBarDemo'
 import {Route} from 'react-router-dom'
-import {withStyles , Theme, StyleRulesCallback } from '@material-ui/core/styles';
+import {withStyles, Theme, StyleRulesCallback} from '@material-ui/core/styles';
 import classNames from 'classnames';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Drawer from '@material-ui/core/Drawer';
+// import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+// import Divider from '@material-ui/core/Divider';
+// import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+// import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
 
 const drawerWidth = 240;
 
-const styles:StyleRulesCallback = (theme: Theme) => ({
+const styles: StyleRulesCallback = (theme: Theme) => ({
     root: {
         flexGrow: 1,
         height: 440,
@@ -35,6 +36,7 @@ const styles:StyleRulesCallback = (theme: Theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
+        backgroundColor: 'transparent'
     },
     appBarShift: {
         marginLeft: drawerWidth,
@@ -85,23 +87,26 @@ const styles:StyleRulesCallback = (theme: Theme) => ({
     },
 });
 
-class App extends React.Component<any,{}> {
+class App extends React.Component<any, {}> {
     public state = {
         value: 0,
         open: false,
+        tabValue: 0,
     }
     public handleChange = (event: any, value: any) => {
         this.setState({value});
     };
     public handleDrawerOpen = () => {
-        this.setState({ open: true });
+        this.setState({open: true});
     };
 
     public handleDrawerClose = () => {
-        this.setState({ open: false });
+        this.setState({open: false});
     };
+
     public render() {
-        const {classes, theme} = this.props;
+        const {classes} = this.props;
+        const {tabValue} = this.state;
         return (
             <div className="App">
                 <div>
@@ -112,48 +117,64 @@ class App extends React.Component<any,{}> {
                     position="absolute"
                     className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
                 >
-                    <Toolbar disableGutters={!this.state.open}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, this.state.open && classes.hide)}
-                        >
-                            <MenuIcon/>
-                        </IconButton>
-                        <Typography variant="title" color="inherit" noWrap={true}>
-                            Mini variant drawer
-                        </Typography>
-                    </Toolbar>
+                    {/*<Toolbar disableGutters={!this.state.open}>*/}
+                    {/*<IconButton*/}
+                    {/*color="inherit"*/}
+                    {/*aria-label="Open drawer"*/}
+                    {/*onClick={this.handleDrawerOpen}*/}
+                    {/*className={classNames(classes.menuButton, this.state.open && classes.hide)}*/}
+                    {/*>*/}
+                    {/*<MenuIcon/>*/}
+                    {/*</IconButton>*/}
+                    {/*<Typography variant="title" color="inherit" noWrap={true}>*/}
+                    {/*Mini variant drawer*/}
+                    {/*</Typography>*/}
+                    {/*</Toolbar>*/}
+                    <Tabs
+                        value={tabValue}
+                        onChange={this.handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        scrollable={true}
+                        scrollButtons="auto"
+                    >
+                        <Tab label="Item One"/>
+                        <Tab label="Item Two"/>
+                        <Tab label="Item Three"/>
+                        <Tab label="Item Four"/>
+                        <Tab label="Item Five"/>
+                        <Tab label="Item Six"/>
+                        <Tab label="Item Seven"/>
+                    </Tabs>
                 </AppBar>
-                <Drawer
-                    variant="permanent"
-                    classes={{
-                        paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
-                    }}
-                    open={this.state.open}
-                >
-                    <div className={classes.toolbar}>
-                        <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
-                        </IconButton>
-                    </div>
-                    <Divider/>
-                    <List>sdsdsd</List>
-                    <Divider/>
-                    <List>eg4g4g4g4r4rt4</List>
-                    <Paper>
-                        <Tabs
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                            centered={true}
-                        >
-                            <Tab label="SnackBarDemo" href="#/SnackBarDemo"/>
-                            <Tab label="Item Two"/>
-                            <Tab label="Item Three"/>
-                        </Tabs>
-                    </Paper>
-                </Drawer>
+                {/*<Drawer*/}
+                {/*variant="permanent"*/}
+                {/*classes={{*/}
+                {/*paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),*/}
+                {/*}}*/}
+                {/*open={this.state.open}*/}
+                {/*>*/}
+                {/*<div className={classes.toolbar}>*/}
+                {/*<IconButton onClick={this.handleDrawerClose}>*/}
+                {/*{theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}*/}
+                {/*</IconButton>*/}
+                {/*</div>*/}
+                {/*<Divider/>*/}
+                {/*<List>sdsdsd</List>*/}
+                {/*<Divider/>*/}
+                {/*<List>eg4g4g4g4r4rt4</List>*/}
+                {/*<Paper>*/}
+                {/*<Tabs*/}
+                {/*value={this.state.value}*/}
+                {/*onChange={this.handleChange}*/}
+                {/*centered={true}*/}
+                {/*>*/}
+                {/*<Tab label="SnackBarDemo" href="#/SnackBarDemo"/>*/}
+                {/*<Tab label="Item Two"/>*/}
+                {/*<Tab label="Item Three"/>*/}
+                {/*</Tabs>*/}
+                {/*</Paper>*/}
+                {/*</Drawer>*/}
                 <main className={classes.content}>
                     <div className={classes.toolbar}/>
                     <Typography noWrap={true}>{'You think water moves fast? You should see ice.'}</Typography>
